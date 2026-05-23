@@ -30,3 +30,6 @@ Before running this project locally, ensure your system has the following instal
 Compile the Rust code into a WebAssembly (.wasm) file ready to be uploaded to the network:
 ```bash
 cargo build --target wasm32-unknown-unknown --release
+
+## Contract ID
+CD53HCX5ON2EQXLYRSXB6BGVYCMGS7CHL5MGYHHUVEWSRVOPJ25QSLYE
