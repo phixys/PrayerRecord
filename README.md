@@ -1,22 +1,32 @@
-# Soroban Project
+# 🕋 Mutaba'ah On-Chain: Soroban Prayer Tracker
 
-## Project Structure
+Sebuah *smart contract* terdesentralisasi (dApp) yang dibangun di atas jaringan **Stellar (Soroban)** untuk mencatat riwayat sholat harian (Mutaba'ah Yaumiyah) secara *immutable* (permanen dan tidak bisa dimanipulasi).
 
-This repository uses the recommended structure for a Soroban project:
+Aplikasi ini mendemonstrasikan operasi dasar CRUD (Create, Read, Delete) pada *blockchain* menggunakan bahasa pemrograman Rust dan Soroban SDK.
 
-```text
-.
-├── contracts
-│   └── hello_world
-│       ├── src
-│       │   ├── lib.rs
-│       │   └── test.rs
-│       └── Cargo.toml
-├── Cargo.toml
-└── README.md
-```
+## ✨ Fitur Utama
 
-- New Soroban contracts can be put in `contracts`, each in their own directory. There is already a `hello_world` contract in there to get you started.
-- If you initialized this project with any other example contracts via `--with-example`, those contracts will be in the `contracts` directory as well.
-- Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
-- Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
+* **Catat Sholat (`record_prayer`):** Menyimpan data sholat (tanggal, waktu sholat, dan status pelaksanaan seperti berjamaah/sendiri) ke dalam jaringan blockchain.
+* **Lihat Riwayat (`get_prayers`):** Mengambil dan menampilkan seluruh daftar riwayat sholat yang pernah dicatat oleh pengguna.
+* **Hapus Catatan (`delete_prayer`):** Menghapus catatan spesifik berdasarkan ID (berguna untuk mengoreksi kesalahan *input* data).
+
+## 🛠️ Teknologi yang Digunakan
+
+* **Bahasa Pemrograman:** Rust (`#![no_std]`)
+* **Smart Contract Platform:** Soroban (Stellar Network)
+* **Environment:** Stellar Testnet / Futurenet
+
+## 📋 Prasyarat Sistem
+
+Sebelum menjalankan *project* ini secara lokal, pastikan sistem kamu sudah menginstal:
+
+1. [Rust toolchain](https://www.rust-lang.org/tools/install) (termasuk `cargo`)
+2. Target WebAssembly: `rustup target add wasm32-unknown-unknown`
+3. [Stellar CLI](https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup)
+
+## 🚀 Panduan Instalasi & Deployment
+
+### 1. Build Smart Contract
+Kompilasi kode Rust menjadi *file* WebAssembly (.wasm) yang siap diunggah ke jaringan:
+```bash
+cargo build --target wasm32-unknown-unknown --release
